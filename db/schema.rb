@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -10,52 +12,51 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_29_093536) do
-
+ActiveRecord::Schema.define(version: 20_210_629_093_536) do
   # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+  enable_extension 'plpgsql'
 
-  create_table "boards", force: :cascade do |t|
-    t.integer "rows"
-    t.integer "cols"
-    t.integer "mines_percentage"
-    t.bigint "game_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["game_id"], name: "index_boards_on_game_id"
+  create_table 'boards', force: :cascade do |t|
+    t.integer 'rows'
+    t.integer 'cols'
+    t.integer 'mines_percentage'
+    t.bigint 'game_id'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.index ['game_id'], name: 'index_boards_on_game_id'
   end
 
-  create_table "cells", force: :cascade do |t|
-    t.integer "x"
-    t.integer "y"
-    t.integer "mines_percentage"
-    t.boolean "played", default: false
-    t.integer "mines_neighbors"
-    t.integer "kind"
-    t.bigint "board_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["board_id"], name: "index_cells_on_board_id"
+  create_table 'cells', force: :cascade do |t|
+    t.integer 'x'
+    t.integer 'y'
+    t.integer 'mines_percentage'
+    t.boolean 'played', default: false
+    t.integer 'mines_neighbors'
+    t.integer 'kind'
+    t.bigint 'board_id', null: false
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.index ['board_id'], name: 'index_cells_on_board_id'
   end
 
-  create_table "games", force: :cascade do |t|
-    t.string "player"
-    t.boolean "won", default: false
-    t.boolean "over", default: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+  create_table 'games', force: :cascade do |t|
+    t.string 'player'
+    t.boolean 'won', default: false
+    t.boolean 'over', default: false
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
   end
 
-  create_table "plays", force: :cascade do |t|
-    t.integer "x"
-    t.integer "y"
-    t.bigint "game_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["game_id"], name: "index_plays_on_game_id"
+  create_table 'plays', force: :cascade do |t|
+    t.integer 'x'
+    t.integer 'y'
+    t.bigint 'game_id', null: false
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.index ['game_id'], name: 'index_plays_on_game_id'
   end
 
-  add_foreign_key "boards", "games"
-  add_foreign_key "cells", "boards"
-  add_foreign_key "plays", "games"
+  add_foreign_key 'boards', 'games'
+  add_foreign_key 'cells', 'boards'
+  add_foreign_key 'plays', 'games'
 end
