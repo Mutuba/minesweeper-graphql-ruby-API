@@ -54,7 +54,7 @@
           null,
           null,
           1,
-          1,
+          null,
           null,
           null
         ]
@@ -284,6 +284,20 @@
           null
         ]
       },
+      "/Users/mutuba/Desktop/minesweeper-API/spec/factories/play.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          null
+        ]
+      },
       "/Users/mutuba/Desktop/minesweeper-API/config/routes.rb": {
         "lines": [
           null,
@@ -357,9 +371,6 @@
           2,
           2,
           2,
-          null,
-          2,
-          null,
           2,
           null,
           1,
@@ -465,8 +476,30 @@
           null,
           null
         ]
+      },
+      "/Users/mutuba/Desktop/minesweeper-API/spec/models/play_spec.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          null,
+          1,
+          2,
+          2,
+          null,
+          2,
+          null
+        ]
+      },
+      "/Users/mutuba/Desktop/minesweeper-API/app/models/play.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null
+        ]
       }
     },
-    "timestamp": 1624956714
+    "timestamp": 1624958738
   }
 }
