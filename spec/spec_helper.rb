@@ -100,4 +100,10 @@ RSpec.configure do |config|
   #   # test failures related to randomization by passing the same `--seed` value
   #   # as the one that triggered the failure.
   #   Kernel.srand config.seed
+  # avail type definer in our tests
+  def set_graphql_type
+    let(:subject) do
+      described_class
+    end
+  end
 end

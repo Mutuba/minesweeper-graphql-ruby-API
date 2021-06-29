@@ -30,6 +30,7 @@
           1,
           1,
           1,
+          1,
           null,
           null,
           null,
@@ -303,6 +304,55 @@
           null,
           null,
           1,
+          1,
+          null,
+          1,
+          null
+        ]
+      },
+      "/Users/mutuba/Desktop/minesweeper-API/spec/graphql/types/board_type_spec.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          null,
+          null,
+          1,
+          null,
+          1,
+          null,
+          null,
+          1,
+          null,
+          1,
+          null,
+          null,
+          1,
+          null,
+          null,
+          1,
+          null,
+          null
+        ]
+      },
+      "/Users/mutuba/Desktop/minesweeper-API/app/graphql/types/board_type.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
           null,
           null
         ]
@@ -493,6 +543,8 @@
       },
       "/Users/mutuba/Desktop/minesweeper-API/app/models/play.rb": {
         "lines": [
+          null,
+          null,
           1,
           1,
           1,
@@ -500,6 +552,6 @@
         ]
       }
     },
-    "timestamp": 1624958738
+    "timestamp": 1624971394
   }
 }
