@@ -21,7 +21,6 @@ RSpec.describe Types::BoardType do
   end
 
   it 'has a :mines_percentage field of Integer type' do
-
     # Ensure the field is of Integer type
     expect(subject.fields['minesPercentage'].type.to_type_signature).to eq('Int!')
   end

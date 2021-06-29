@@ -23,7 +23,7 @@ class Game < ApplicationRecord
       @cell_factory = CellFactory.new(board: board, move: @move).make
       @verifier.move
     end
-    find_empty_cells_surround
+    find_empty_cells_around
     @verifier.play
   end
 
@@ -46,7 +46,7 @@ class Game < ApplicationRecord
     @verifier = PlayVerifier.new game: self, move: @move
   end
 
-  def find_empty_cells_surround
-    EmptyCellFinder.new(board, @move).find! if @verifier.playable_with_neighbor_mine?
+  def find_empty_cells_around
+    EmptyCellFinder.new(board, @move).find! if @verifier.playable_with_neighbour_mine?
   end
 end
