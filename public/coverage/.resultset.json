@@ -336,7 +336,6 @@
           null,
           1,
           null,
-          null,
           1,
           null,
           null
@@ -351,6 +350,105 @@
           1,
           null,
           1,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/Users/mutuba/Desktop/minesweeper-API/spec/graphql/types/game_type_spec.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          null,
+          null,
+          1,
+          null,
+          1,
+          null,
+          null,
+          1,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/mutuba/Desktop/minesweeper-API/app/graphql/types/game_type.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/Users/mutuba/Desktop/minesweeper-API/app/graphql/types/base_object.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/Users/mutuba/Desktop/minesweeper-API/app/graphql/types/base_edge.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          null,
+          1,
+          null,
+          null
+        ]
+      },
+      "/Users/mutuba/Desktop/minesweeper-API/app/graphql/types/base_connection.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          null,
+          1,
+          null,
+          null
+        ]
+      },
+      "/Users/mutuba/Desktop/minesweeper-API/app/graphql/types/base_field.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/Users/mutuba/Desktop/minesweeper-API/app/graphql/types/base_argument.rb": {
+        "lines": [
+          null,
+          null,
           1,
           1,
           null,
@@ -552,6 +650,6 @@
         ]
       }
     },
-    "timestamp": 1624971394
+    "timestamp": 1624974726
   }
 }
