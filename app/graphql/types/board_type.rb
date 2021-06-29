@@ -7,5 +7,6 @@ module Types
     field :rows, Int, null: false
     field :cols, Int, null: false
     field :mines_percentage, Int, null: false
+    field :cells, CellType, null: false
   end
 end

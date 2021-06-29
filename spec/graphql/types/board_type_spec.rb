@@ -24,4 +24,9 @@ RSpec.describe Types::BoardType do
     # Ensure the field is of Integer type
     expect(subject.fields['minesPercentage'].type.to_type_signature).to eq('Int!')
   end
+
+  it 'has a :cells field of CellType type' do
+    # Ensure the field is of CellType type
+    expect(subject.fields['cells'].type.to_type_signature).to eq('Cell!')
+  end
 end

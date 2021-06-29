@@ -338,6 +338,12 @@
           null,
           1,
           null,
+          null,
+          null,
+          1,
+          null,
+          1,
+          null,
           null
         ]
       },
@@ -351,6 +357,53 @@
           null,
           1,
           1,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/Users/mutuba/Desktop/minesweeper-API/app/graphql/types/cell_type.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/Users/mutuba/Desktop/minesweeper-API/spec/graphql/types/cell_type_spec.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          null,
+          null,
+          1,
+          null,
+          1,
+          null,
+          null,
+          1,
+          null,
+          1,
+          null,
+          null,
+          1,
+          null,
           1,
           null,
           null
@@ -378,8 +431,6 @@
           1,
           null,
           1,
-          null,
-          null,
           null,
           null
         ]
@@ -650,6 +701,6 @@
         ]
       }
     },
-    "timestamp": 1624974726
+    "timestamp": 1624976859
   }
 }
