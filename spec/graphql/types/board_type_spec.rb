@@ -26,7 +26,7 @@ RSpec.describe Types::BoardType do
   end
 
   it 'has a :cells field of CellType type' do
-    # Ensure the field is of CellType type
-    expect(subject.fields['cells'].type.to_type_signature).to eq('Cell!')
+    # Ensure the field is of [Cell!]! type
+    expect(subject.fields['cells'].type.to_type_signature).to eq('[Cell!]!')
   end
 end

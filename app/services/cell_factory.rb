@@ -13,7 +13,7 @@ class CellFactory
       @board.rows.times do |y|
         mine = mines.include?({ x: x, y: y })
         attrs = mine ? { x: x, y: y, kind: :mine } : { x: x, y: y, kind: :void }
-        attrs[:mines_neighbours] = calculate_neighbours attrs
+        attrs[:mines_neighbors] = calculate_neighbours attrs
         @board.cells << Cell.new(attrs)
       end
     end

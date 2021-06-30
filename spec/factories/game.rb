@@ -3,7 +3,8 @@
 FactoryBot.define do
   factory :game do
     player { 'Mutuba' }
-    board_attributes factory: :board
-    # board_attributes { association :board }
+    after(:build) do |game|
+      game.board ||= FactoryGirl.build(:board, game: game)
+    end
   end
 end

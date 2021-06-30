@@ -7,11 +7,11 @@ class Cell < ApplicationRecord
 
   validates_presence_of :x, :y, :kind
 
-  def mines_neighbors?
+  def mines_neighbours?
     mines_neighbors.positive?
   end
 
-  def not_mines_neighbors?
+  def not_mines_neighbours?
     !mines_neighbors?
   end
 end

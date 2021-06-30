@@ -30,4 +30,15 @@ class MineSweeperGraphqlApiSchema < GraphQL::Schema
     # find an object in your application
     # ...
   end
+
+  rescue_from(ActiveRecord::RecordNotFound) do |_err, _obj, _args, _ctx, field|
+    # Raise a graphql-friendly error with a custom message
+    raise GraphQL::ExecutionError, "#{field.type.unwrap.graphql_name} not found"
+  end
+rescue ActiveRecord::RecordInvalid => e
+  GraphQL::ExecutionError.new("Invalid attributes for #{e.record.class}:"\
+      " #{e.record.errors.full_messages.join(', ')}")
+rescue ActiveRecord::RecordInvalid => e
+  GraphQL::ExecutionError.new("Invalid attributes for #{e.record.class}:"\
+    " #{e.record.errors.full_messages.join(', ')}")
 end

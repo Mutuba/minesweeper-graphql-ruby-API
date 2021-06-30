@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :cell do
-    kind { mine }
+    kind { :void }
     x { 5 }
     y { 5 }
   end
