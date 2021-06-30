@@ -4,6 +4,6 @@ FactoryBot.define do
   factory :board do
     rows { 20 }
     cols { 30 }
-    mines_percentage { 20 }
+    mines_percentage { 10 }
   end
 end

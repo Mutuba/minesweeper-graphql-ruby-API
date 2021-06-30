@@ -6,6 +6,5 @@ module Types
     field :play_game, mutation: Mutations::Games::PlayGame
 
     field :update_game, mutation: Mutations::Games::UpdateGame
-    field :delete_game, mutation: Mutations::Games::DeleteGame
   end
 end

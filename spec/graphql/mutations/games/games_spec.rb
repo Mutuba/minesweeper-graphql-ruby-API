@@ -28,7 +28,7 @@ module Mutations
 
             expect(response).to have_http_status(200)
             expect(data).not_to be_empty
-            expect(data['player']).to eq("Mutuba")
+            expect(data['player']).to eq('Mutuba')
           end
         end
       end
@@ -47,7 +47,7 @@ module Mutations
         end
       end
       describe '.fetchGameById' do
-        context 'when a task exists and the request is valid' do
+        context 'when a game exists and the request is valid' do
           it 'returns a game' do
             post '/graphql', params: { query: fetch_game_query(id: game.id) }
 
@@ -56,7 +56,18 @@ module Mutations
             data = json['data']['fetchGameById']
             expect(data).not_to be_empty
             expect(data['id'].to_i).to eq(game.id)
-            
+          end
+        end
+      end
+
+      describe '.playGame' do
+        context 'when a game exists and the request is valid' do
+          it 'creates a move for the game' do
+            post '/graphql', params: { query: play_game_query(game_id: game.id) }
+
+            json = JSON.parse(response.body)
+            data = json['data']['playGame']
+            expect(data).not_to be_empty
           end
         end
       end
@@ -79,6 +90,18 @@ module Mutations
               over
               won
               player
+            }
+          }
+        GQL
+      end
+
+      def play_game_query(game_id:)
+        <<~GQL
+          mutation {
+            playGame(input: {move: {x: 3, y: 3}, gameId: #{game_id}}) {
+              id
+              x
+              y
             }
           }
         GQL
