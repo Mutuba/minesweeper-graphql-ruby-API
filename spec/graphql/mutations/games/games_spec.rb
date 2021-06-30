@@ -5,6 +5,8 @@ require 'rails_helper'
 module Mutations
   module Games
     RSpec.describe CreateGame, type: :request do
+      let(:game_mock) { mock_model(Game) }
+
       let!(:games) { create_list(:game, 5) }
 
       let(:game) { games.first }
@@ -68,6 +70,18 @@ module Mutations
             json = JSON.parse(response.body)
             data = json['data']['playGame']
             expect(data).not_to be_empty
+          end
+        end
+
+        context 'when a game does not exist' do
+          before { allow(game.class).to receive(:find).with(game.id).and_raise(ActiveRecord::RecordNotFound.new) }
+
+          it 'returns 404 not found ' do
+            post '/graphql', params: { query: play_game_query(game_id: game.id) }
+
+            json = JSON.parse(response.body)
+            message = json['errors'][0]['message']
+            expect(message).to eq 'Game does not exist.'
           end
         end
       end
