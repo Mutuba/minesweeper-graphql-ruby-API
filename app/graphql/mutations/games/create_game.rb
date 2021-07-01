@@ -13,8 +13,7 @@ module Mutations
         @game = Game.create!(player: player)
         Board.create!(game: @game, **board_params)
       rescue ActiveRecord::RecordInvalid => e
-        GraphQL::ExecutionError.new("Invalid attributes for #{e.record.class}:"\
-          " #{e.record.errors.full_messages.join(', ')}")
+        GraphQL::ExecutionError.new('Invalid attributes for game')
       end
     end
   end

@@ -5,10 +5,7 @@ require 'rails_helper'
 module Mutations
   module Games
     RSpec.describe UpdateGame, type: :request do
-      let!(:games) { create_list(:game, 5) }
-
-      let(:game) { games.first }
-
+      let!(:game) { create(:game) }
       describe '.updateGame' do
         context 'when the request is valid' do
           before { post '/graphql', params: { query: update_game_query(game_id: game.id) } }

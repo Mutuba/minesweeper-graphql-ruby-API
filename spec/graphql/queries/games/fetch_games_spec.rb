@@ -7,8 +7,6 @@ module Queries
     RSpec.describe FetchGames, type: :request do
       let!(:games) { create_list(:game, 5) }
 
-      let(:game) { games.first }
-
       describe '.fetchAllGames' do
         context 'when a task exists and the request is valid' do
           it 'returns a game' do

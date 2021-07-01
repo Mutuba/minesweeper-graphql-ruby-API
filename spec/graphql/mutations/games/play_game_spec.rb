@@ -5,9 +5,8 @@ require 'rails_helper'
 module Mutations
   module Games
     RSpec.describe PlayGame, type: :request do
-      let!(:games) { create_list(:game, 5) }
-
-      let(:game) { games.first }
+      let!(:game) { create(:game) }
+      let(:move) {  { x: 1, y: 1 } }
 
       describe '.playGame' do
         context 'when a game exists and the request is valid' do

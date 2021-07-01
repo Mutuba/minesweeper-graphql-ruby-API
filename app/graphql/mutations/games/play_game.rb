@@ -16,8 +16,7 @@ module Mutations
       rescue ActiveRecord::RecordNotFound => _e
         GraphQL::ExecutionError.new('Game does not exist.')
       rescue ActiveRecord::RecordInvalid => e
-        GraphQL::ExecutionError.new("Invalid attributes for #{e.record.class}:"\
-            " #{e.record.errors.full_messages.join(', ')}")
+        GraphQL::ExecutionError.new('Invalid attributes for move')
       end
     end
   end

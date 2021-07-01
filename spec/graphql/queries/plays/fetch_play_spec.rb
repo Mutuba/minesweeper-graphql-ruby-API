@@ -39,7 +39,6 @@ module Queries
 
         GQL
       end
-
     end
   end
 end
