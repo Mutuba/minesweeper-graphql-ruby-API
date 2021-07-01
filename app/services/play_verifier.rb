@@ -37,7 +37,7 @@ class PlayVerifier
   private
 
   def cell
-    @cell ||= @game.board.cells.find_by @move
+    @cell ||= @game.board.cells.find_by! @move
   end
 
   def cell_played!
