@@ -12,6 +12,6 @@ class Cell < ApplicationRecord
   end
 
   def not_mines_neighbours?
-    !mines_neighbors?
+    !mines_neighbours?
   end
 end

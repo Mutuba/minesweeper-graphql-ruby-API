@@ -5,16 +5,16 @@ require 'rails_helper'
 module Mutations
   module Games
     RSpec.describe PlayGame, type: :request do
-      let(:game_mock) { mock_model(Game) }
-
       let!(:games) { create_list(:game, 5) }
 
       let(:game) { games.first }
 
       describe '.playGame' do
         context 'when a game exists and the request is valid' do
+          before { post '/graphql', params: { query: first_move_query(game_id: game.id) } }
+
           it 'creates a move for the game' do
-            post '/graphql', params: { query: play_game_query(game_id: game.id) }
+            post '/graphql', params: { query: second_move_query(game_id: game.id) }
 
             json = JSON.parse(response.body)
             data = json['data']['playGame']
@@ -38,10 +38,88 @@ module Mutations
       def play_game_query(game_id:)
         <<~GQL
           mutation {
-            playGame(input: {move: {x: 3, y: 3}, gameId: #{game_id}}) {
+            playGame(input: {move: {x: 1, y: 1}, gameId: #{game_id}}) {
               id
               x
               y
+              game {
+                id
+                over
+                player
+                won
+                board {
+                  cols
+                  id
+                  minesPercentage
+                  rows
+                  cells {
+                    id
+                    minesNeighbors
+                    x
+                    y
+                  }
+                }
+              }
+            }
+          }
+        GQL
+      end
+
+      def first_move_query(game_id:)
+        <<~GQL
+          mutation {
+            playGame(input: {move: {x: 1, y: 1}, gameId: #{game_id}}) {
+              id
+              x
+              y
+              game {
+                id
+                over
+                player
+                won
+                board {
+                  cols
+                  id
+                  minesPercentage
+                  rows
+                  cells {
+                    id
+                    minesNeighbors
+                    x
+                    y
+                  }
+                }
+              }
+            }
+          }
+        GQL
+      end
+
+      def second_move_query(game_id:)
+        <<~GQL
+          mutation {
+            playGame(input: {move: {x: 2, y: 2}, gameId: #{game_id}}) {
+              id
+              x
+              y
+              game {
+                id
+                over
+                player
+                won
+                board {
+                  cols
+                  id
+                  minesPercentage
+                  rows
+                  cells {
+                    id
+                    minesNeighbors
+                    x
+                    y
+                  }
+                }
+              }
             }
           }
         GQL
