@@ -6,7 +6,7 @@ module Mutations
       argument :player, String, required: true
       argument :board, Types::Input::BoardInputType, required: true
 
-      type Types::GameType
+      field :game, Types::GameType, null: false
 
       def resolve(player:, board:)
         board_params = Hash board

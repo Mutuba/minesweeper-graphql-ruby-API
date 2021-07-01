@@ -5,8 +5,6 @@ require 'rails_helper'
 module Queries
   module Games
     RSpec.describe FetchGames, type: :request do
-      let(:game_mock) { mock_model(Game) }
-
       let!(:games) { create_list(:game, 5) }
 
       let(:game) { games.first }
