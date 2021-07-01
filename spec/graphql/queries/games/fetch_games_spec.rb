@@ -13,7 +13,6 @@ module Queries
             post '/graphql', params: { query: fetch_all_games_query }
 
             json = JSON.parse(response.body)
-
             data = json['data']['fetchAllGames']
             expect(data.size).to eq 5
             expect(data).not_to be_empty
