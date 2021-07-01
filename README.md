@@ -1,39 +1,133 @@
+
+# README
+
 # minesweeper-API
-API test
 
-We ask that you complete the following challenge to evaluate your development skills. Please use the programming language and framework discussed during your interview to accomplish the following task.
+* Ruby Backend API for the CodingChallengeRubyBackend.
 
-PLEASE DO NOT FORK THE REPOSITORY. WE NEED A PUBLIC REPOSITORY FOR THE REVIEW. 
+* This application uses Ruby version 2.7.2 To install, use rvm or rbenv.
 
-## The Game
-Develop the classic game of [Minesweeper](https://en.wikipedia.org/wiki/Minesweeper_(video_game))
+* RVM
 
-## Show your work
+`rvm install 2.7.2`
 
-1.  Create a Public repository ( please dont make a pull request, clone the private repository and create a new plublic one on your profile)
-2.  Commit each step of your process so we can follow your thought process.
+`rvm use 2.7.2`
 
-## What to build
-The following is a list of items (prioritized from most important to least important) we wish to see:
-* Design and implement  a documented RESTful API for the game (think of a mobile app for your API)
-* Implement an API client library for the API designed above. Ideally, in a different language, of your preference, to the one used for the API
-* When a cell with no adjacent mines is revealed, all adjacent squares will be revealed (and repeat)
-* Ability to 'flag' a cell with a question mark or red flag
-* Detect when game is over
-* Persistence
-* Time tracking
-* Ability to start a new game and preserve/resume the old ones
-* Ability to select the game parameters: number of rows, columns, and mines
-* Ability to support multiple users/accounts
+* Rbenv
+
+`rbenv install 2.7.2`
+
+* Bundler provides a consistent environment for Ruby projects by tracking and installing the exact gems and versions that are needed. I recommend bundler version 2.0.2. To install:
+
+
+* You need Rails. The rails version being used is rails version 6
+
+* To install:
+
+`gem install rails -v '~> 6'` 
+
+* Installation To get up and running with the project locally, follow the following steps.
+
+* Clone the app
+
+* With SSH
+
+`git@github.com:Mutuba/minesweeper-graphql-ruby-API.git`
+
+* With HTTPS
+
+`https://github.com/Mutuba/minesweeper-graphql-ruby-API.git`
+
+
+* Move into the directory and install all the requirements.
+
+* cd CodingChallengeRubyBackend
+
+* check out to master branch
+
+* run `bundle install` to install application packages
+
+* Run `rails db:create` to create a database for the application
+
+* Run `rails db:migrate` to run database migrations and create database tables
+
+* The application can be run by running the below command:-
+
+`rails s` or `rails server`
+
+* The application has tests as it was implemented using TDD.
+
+* To run tests, run the following command:-
+
+` bundle exec rspec`
+
+* This will show test coverage when all tests have run.
+
+* Example:
+
+`Coverage report generated for RSpec to /Users/mutuba/Desktop/minesweeper-API/public/coverage. 527 / 543 LOC (97.05%) covered.`
+
+* The API has been hosted on heroku and can be found on this url: `https://minesweeper-rails-graphql-api.herokuapp.com/graphql`
+
+* The API can be tested using my favourite tool `Firecamp` for graphql APIs that can be downloaded and installed just like postman
+
+
+
+* To create a game, make a POST request with the payload below to `https://minesweeper-rails-graphql-api.herokuapp.com/graphql` 
+
+```
+mutation {
+  createGame(input: {player: "", board: {rows: 10, cols: 10, minesPercentage: 10}}) {
+    game {
+      over
+      id
+      player
+      won
+    }
+  }
+}
+
+```
+
+
+* To play a game, make a POST request with the payload below to `https://minesweeper-rails-graphql-api.herokuapp.com/graphql` 
+
+```
+mutation {
+  playGame(input: {move: {x: 10, y: 10}, gameId: 10}) {
+    id
+    x
+    y
+    game {
+      id
+      over
+      player
+      won
+    }
+  }
+}
+
+```
  
 ## Deliverables we expect:
 * URL where the game can be accessed and played (use any platform of your preference: heroku.com, aws.amazon.com, etc)
 * Code in a public Github repo
 * README file with the decisions taken and important notes
 
-## Time Spent
-You need to fully complete the challenge. We suggest not spending more than 3 days total.  Please make commits as often as possible so we can see the time you spent and please do not make one commit.  We will evaluate the code and time spent.
- 
-What we want to see is how well you handle yourself given the time you spend on the problem, how you think, and how you prioritize when time is sufficient to solve everything.
+## Decisions and Time taken
 
-Please email your solution as soon as you have completed the challenge or the time is up
+* The mines are calculated by a percentage of user choice
+* Save the name of a player on the game
+* The choice of a service pattern was key to support model be slim (help in implementing business login)
+* Mutations, queries and inputs are modular. All mutations for games are in games module so are for plays.
+
+* Specs are organized in a similar fashion.
+
+
+## Todos
+
+* Ensure authentication and track plays and time
+
+* Ability to start a new game and preserve/resume the old ones
+
+* Ability to 'flag' a cell with a question mark or red flag
